@@ -59,9 +59,12 @@ llist.append(20)
 llist.append(4) 
 llist.append(15) 
 llist.append(10) 
+
+# llist.printList()
    
 # Create a loop for testing 
 llist.head.next.next.next.next = llist.head; 
+
   
 if( llist.detectLoop()): 
     print ("Loop found") 
