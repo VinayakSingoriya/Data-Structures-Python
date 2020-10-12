@@ -148,7 +148,6 @@ if __name__ == "__main__":
     # Linking nodes
     l_list.head.next = second
     second.next = third
-    
 
     # Traversing a linked list
     l_list.printData()

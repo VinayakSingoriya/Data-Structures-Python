@@ -61,6 +61,7 @@ class LinkedList:
             last = last.prev
         print("\n-----------------------------------------")
 
+
 if __name__ == "__main__":
     lList = LinkedList()
     lList.append(2)
@@ -78,7 +79,6 @@ if __name__ == "__main__":
     print("DLL after deletion of first node :")
     lList.printList(lList.head)
 
-    lList.deleteNode(lList.head.next)  
-    print("DLL after deletion of second node :")  
+    lList.deleteNode(lList.head.next)
+    print("DLL after deletion of second node :")
     lList.printList(lList.head)
-

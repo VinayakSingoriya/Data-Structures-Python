@@ -1,6 +1,5 @@
 
 
-
 class Node:
     def __init__(self, data, prev=None, next=None):
         self.prev = prev
@@ -59,8 +58,7 @@ class LinkedList:
         else:
             new_node = self.head
 
-
-    def deleteNode(self,dele):
+    def deleteNode(self, dele):
 
         # Base Case
         if self.head is None and dele is None:
@@ -72,18 +70,15 @@ class LinkedList:
 
         # Change next only if node to be deleted is not the last Node
         if dele.next is not None:
-            dele.next.prev = dele.prev  
+            dele.next.prev = dele.prev
 
-        # change prev only if the node to be deleted is not the head node   
+        # change prev only if the node to be deleted is not the head node
         if dele.prev is not None:
             dele.prev.next = dele.next
 
-
         # Finally free the memory occupied by dele
         # call the python garbage collector
-        gc.collect()          
-
-
+        gc.collect()
 
     def printList(self, node):
         print("-----------------------------------------")
@@ -134,8 +129,7 @@ if __name__ == "__main__":
     lList.deleteNode(lList.head)
     print("DLL after deletion of head node :")
     lList.printList(lList.head)
-    
+
     lList.deleteNode(lList.head)
     print("DLL after deletion of head node :")
     lList.printList(lList.head)
-
