@@ -4,5 +4,5 @@ stack.append(6)
 stack.append(7)
 print("Length of stack",len(stack))
 print('ok')
-for i in range(len(stack)-1, -1, -1):
-    print(stack[i])
+for i in stack[::]:
+    print(i)
