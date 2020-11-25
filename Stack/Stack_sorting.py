@@ -1,37 +1,42 @@
 # Python program to sort a stack using recursion
 def sortedInsert(s, element):
-    # Base case: Either stack is empty or newly inserted 
+    # Base case: Either stack is empty or newly inserted
     # item is greater than top (more than all existing)
     if len(s) == 0 or element > s[-1]:
         s.append(element)
         return
     else:
-        #Remove the top item and recur
-        temp = s.pop()    
+        # Remove the top item and recur
+        temp = s.pop()
         sortedInsert(s, element)
 
-        #Put back the top item removed earlier
+        # Put back the top item removed earlier
         s.append(temp)
 
-#Method to sort stack
+# Method to sort stack
+
+
 def sortStack(s):
     # If stack is not empty
     if len(s) != 0:
         # Remove the top item
         temp = s.pop()
         # Sort remaining stack
-        sortStack(s)            # 
+        sortStack(s)            #
         # Push the top item back in sorted stack
         sortedInsert(s, temp)
 
-#Printing elements of stack
+# Printing elements of stack
+
+
 def printStack(s):
     for i in s[::-1]:
         print(i, end=" ")
     print()
 
+
 if __name__ == '__main__':
-    s = []        
+    s = []
     s.append(30)
     s.append(-5)
     s.append(18)

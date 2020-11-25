@@ -36,7 +36,6 @@ class LinkedList:
         if temp is not None:
             self.head = temp.prev
 
-
     def printList(self, node):
         print("-----------------------------------------")
         print("Traversal in forward direction in DLL : ")

@@ -5,10 +5,11 @@ class Node:
         self.value = value
         self.next = None
 
+
 class Stack:
-    # Initializing a stack. 
-    # Use a dummy node, which is 
-    # easier for handling edge cases. 
+    # Initializing a stack.
+    # Use a dummy node, which is
+    # easier for handling edge cases.
     def __init__(self):
         self.head = Node("head")
         self.size = 0
@@ -30,10 +31,10 @@ class Stack:
     def isEmpty(self):
         return self.size == 0
 
-    #Get a top item of the stack
+    # Get a top item of the stack
     def peek(self):
         if self.isEmpty():
-            raise Exception("Peeking form an empty stack")    
+            raise Exception("Peeking form an empty stack")
         return self.head.next.value
 
     # Push a value into the Stack
@@ -52,19 +53,13 @@ class Stack:
         self.size -= 1
         return remove.value
 
+
 if __name__ == "__main__":
     stack = Stack()
     for i in range(1, 11):
         stack.push(i)
-    print(f"Stack: {stack}")            
-    for i in range(1,6):
+    print(f"Stack: {stack}")
+    for i in range(1, 6):
         remove = stack.pop()
         print(f"Pop : {remove}")
-    print(f"Stack: {stack}")    
-
-
-
-
-
-
-
+    print(f"Stack: {stack}")
