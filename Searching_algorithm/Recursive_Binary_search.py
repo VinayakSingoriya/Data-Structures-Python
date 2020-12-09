@@ -1,6 +1,6 @@
 # Program for recursive binary binarySearch
 
-def binarySearch(arr, l, h, x):  # Time complexity : O(log n)
+def binarySearch(arr, l, h, x):  # Time complexity : O(log n), Auxiliary space complexity : O(log n)
     if h >= l:
         mid = (l + h) // 2
         # If element is present at the middle itself

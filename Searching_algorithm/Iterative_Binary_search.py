@@ -1,5 +1,5 @@
 # Program to implement Iterative Binary Search operation
-def binarySearch(arr, l, h, x):  # Time complexity : O(log n)
+def binarySearch(arr, l, h, x):  # Time complexity : O(log n), Auxiliary space complexity : O(1)
     while h >= l:
         mid = (l+h)//2
 
