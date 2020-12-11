@@ -3,7 +3,7 @@
 # Auxiliary space : O(1) 
 
 def Bubblesort(arr, n):                     
-    for i in range(n): 
+    for i in range(0,n-1):
         # print(f"\n Working on pass number {i+1}") 
         isSorted = 1      
         for j in range(0, n-i-1):
