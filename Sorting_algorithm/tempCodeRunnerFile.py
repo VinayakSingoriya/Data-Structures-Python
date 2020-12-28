@@ -1,2 +1,2 @@
 
-    for i in range(n):
+    while (i <= j):
