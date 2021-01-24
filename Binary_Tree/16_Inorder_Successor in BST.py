@@ -1,4 +1,6 @@
-# Implementation of Searching Operation in a BST.
+# Implementation of Inorder successor in a BST
+# Time complexity : O(h), where h is the height of BST
+
 class Node:
     def __init__(self, data):
         self.data = data
