@@ -27,32 +27,32 @@ def search(root, key):
     # Key is smaller than root's key
     return search(root.left, key)
 
-def GetSuccessor(root, key):
+def GetPredecessor(root, key):
     # Search the node
     current = search(root, key)
     if current is None:
         print("\n >> You have entered Invalid Key")
-        exit()  
-    if(current.right != None):
-        # Case 1: Node has right subtree
-        current = current.right
-        # To find minimum (or) deepest leftmost node in right subtree
-        while current.left != None:   
-            current = current.left
+        exit()   
+    if(current.left != None):
+        # Case 1: Node has left subtree
+        current = current.left
+        # To find maximum (or) deepest rightmost node in left subtree
+        while current.right != None:   
+            current = current.right
         return  current
     else:
-        # case 2: Node has no right subtree
-        successor = None
+        # case 2: Node has no left subtree
+        predecessor = None
         ancestor  = root
-         # To find nearest ancestor for which given node would be in left subtree.
+         # To find nearest ancestor for which given node would be in right subtree.
         while(ancestor != current):       
-            if current.data < ancestor.data :
-                successor = ancestor
-                ancestor = ancestor.left
-            else:
+            if current.data > ancestor.data :
+                predecessor = ancestor
                 ancestor = ancestor.right
+            else:
+                ancestor = ancestor.left
 
-        return successor
+        return predecessor
 
 root = Node(8)
 root.left = Node(3)
@@ -66,11 +66,11 @@ root.right.right.left = Node(13)
 
 print("Inorder Traversal of Tree is:")
 printInorder(root)
-key =  8
-succ = GetSuccessor(root, key)
-if succ:
-    print(f"\nSuccessor of {key} :", succ.data)
+key =  25
+pre= GetPredecessor(root, key)
+if pre:
+    print(f"\nPredecessor of {key} :", pre.data)
 else:
-    print(f'\nSuccessor of {key} : None')    
+    print(f'\nPredecessor of {key} : None')    
 
 
