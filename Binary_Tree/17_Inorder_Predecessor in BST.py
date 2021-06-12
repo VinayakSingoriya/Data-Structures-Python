@@ -54,23 +54,24 @@ def GetPredecessor(root, key):
 
         return predecessor
 
-root = Node(8)
-root.left = Node(3)
-root.right = Node(10)
-root.left.left = Node(1)
-root.left.right = Node(6)
-root.left.right.left = Node(4)
-root.left.right.right = Node(7)
-root.right.right = Node(14)
-root.right.right.left = Node(13)
+if __name__ == "__main__":
+    root = Node(8)
+    root.left = Node(3)
+    root.right = Node(10)
+    root.left.left = Node(1)
+    root.left.right = Node(6)
+    root.left.right.left = Node(4)
+    root.left.right.right = Node(7)
+    root.right.right = Node(14)
+    root.right.right.left = Node(13)
 
-print("Inorder Traversal of Tree is:")
-printInorder(root)
-key =  25
-pre= GetPredecessor(root, key)
-if pre:
-    print(f"\nPredecessor of {key} :", pre.data)
-else:
-    print(f'\nPredecessor of {key} : None')    
+    print("Inorder Traversal of Tree is:")
+    printInorder(root)
+    key =  25
+    pre= GetPredecessor(root, key)
+    if pre:
+        print(f"\nPredecessor of {key} :", pre.data)
+    else:
+        print(f'\nPredecessor of {key} : None')    
 
 

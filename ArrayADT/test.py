@@ -1,2 +1,3 @@
-for i in range(0, 0):
-    print(i)
+arr = [i for i in range(1, 5)]
+print(arr)
+print(arr[0])

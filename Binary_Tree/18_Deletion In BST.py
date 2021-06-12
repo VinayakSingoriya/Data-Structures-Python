@@ -1,5 +1,4 @@
-# Implementation of Inorder successor in a BST
-# Time complexity : O(h), where h is the height of BST
+# Implementation of a delete a node in a BST
 
 class Node:
     def __init__(self, data):
@@ -7,10 +6,9 @@ class Node:
         self.left = None
         self.right = None
 
-
 def printInorder(root):
     if root is not None:
-        printInorder(root.left)
+        printInorder(root.left)        
         print(root.data, end=" ")
         printInorder(root.right)
 
@@ -27,12 +25,9 @@ def search(root, key):
     # Key is smaller than root's key
     return search(root.left, key)
 
-def GetSuccessor(root, key):
+def GetSuccessor(root, node):
     # Search the node
-    current = search(root, key)
-    if current is None:
-        print("\n >> You have entered Invalid Key")
-        exit()  
+    current = node  
     if(current.right != None):
         # Case 1: Node has right subtree
         current = current.right
@@ -52,10 +47,37 @@ def GetSuccessor(root, key):
             else:
                 ancestor = ancestor.right
 
-        return successor
+        return successor    
 
-if __name__ == "__main__":
-    root = Node(8)
+
+def deleteNode(root, key):
+    current = search(root, key)
+    print()
+    print(current.data)
+    if current == None:
+        print("Key Not Found")
+        exit()
+    # Case 1: No child
+    if (current.right==None and current.left==None):
+        current = None
+    # Case 2: one child
+    elif (current.left == None):
+        temp = current
+        current = current.right
+        temp = None
+    elif (current.right == None):
+        temp =  current
+        current = current.left
+        temp = None
+    # Case 3: Two children
+    else:
+        temp = GetSuccessor(root, current)
+        current.data = temp.data
+        current.right = deleteNode(current.right, temp.data)
+    return current
+    
+if __name__ == '__main__':
+    root = Node(8);
     root.left = Node(3)
     root.right = Node(10)
     root.left.left = Node(1)
@@ -65,13 +87,13 @@ if __name__ == "__main__":
     root.right.right = Node(14)
     root.right.right.left = Node(13)
 
-    print("Inorder Traversal of Tree is:")
-    printInorder(root)
-    key =  8
-    succ = GetSuccessor(root, key)
-    if succ:
-        print(f"\nSuccessor of {key} :", succ.data)
-    else:
-        print(f'\nSuccessor of {key} : None')    
+    print("Inorder is :", end = " ")
+    printInorder(root) 
 
-
+    deleteNode(root,3) 
+    print("\n After delete:")
+    print("Inorder is :", end = " ")
+    printInorder(root)     
+    
+     
+       
